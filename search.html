@@ -9,7 +9,29 @@
   <!-- <link rel="stylesheet" href="css/normalize.css" /> -->
   <link rel="stylesheet" href="css/sakura.css" />
   <title>Anna University Chennai Research Ranking</title>
-  <link rel="stylesheet" type="text/css" href="tablefilter/style/tablefilter.css" /> 
+  <link rel="stylesheet" type="text/css" href="tablefilter/style/tablefilter.css" />
+  <style>
+    /**
+     * Custom CSS definitions as per TableFilter configuration
+     */
+    .myLoader {
+      position: absolute;
+      padding: 5px;
+      margin: 100px 0 0 5%;
+      width: auto;
+      z-index: 1000;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid #666;
+      background: #ffffcc;
+      vertical-align: middle;
+    }
+
+    .myStatus {
+      width: auto;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,8 +46,8 @@
 
   <br>
   <br>
-  <div style="text-align: center; visibility: hidden;">
-    <input list="AOI" name="AOI" placeholder="Search.."><!-- autofocus> -->
+  <!-- <div style="text-align: center; visibility: hidden;">
+    <input list="AOI" name="AOI" placeholder="Search.." autofocus>
     <datalist id="AOI">
       <option value='3D Printing'>
       <option value='5G Networks'>
@@ -982,14 +1004,14 @@
 
     </datalist>
     <button>Search</button>
-  </div>
-  <table id="aoi-table" autofocus>
-    <thead  style="text-align:center">
-    <tr>
-      <td colspan=2><strong>Area of Interest</strong></td>
-      <!-- <td >Expert ID</td> -->
-    </tr>
-  </thead>
+  </div> -->
+  <table id="aoi-table">
+    <thead style="text-align:center">
+      <tr>
+        <td colspan=2><strong>Area of Interest</strong></td>
+        <!-- <td >Expert ID</td> -->
+      </tr>
+    </thead>
     <tr>
       <td>3D Printing</td>
       <td>36610</td>
@@ -5064,35 +5086,45 @@
 
   <script src="tablefilter/tablefilter.js"></script>
 
-<script data-config="">
- var filtersConfig = {
-  base_path: 'tablefilter/',
-  //col_widths: ['100%', '40%'],
-  // grid_layout: {
-  //         width: '100%'
-  //     },
-  highlight_keywords: true,
-  single_filter: {
-            exclude_cols: [1],
-            //css_class: 'form-control',
-        },
-        paging: {
-          results_per_page: ['Records: ', [10, 25, 50, 100]]
-        },
-  auto_filter: {
-                    delay: 110 //milliseconds
-              },
-              filters_row_index: 1,
-              //state: true,
-              alternate_rows: true,
-              rows_counter: true,
-              btn_reset: true,
-              status_bar: true,
-              msg_filter: 'Search...'
-            };
-            var tf = new TableFilter('aoi-table', filtersConfig);
-            tf.init();
-          </script>
+  <script data-config="">
+    var filtersConfig = {
+      base_path: 'tablefilter/',
+      //col_widths: ['100%', '40%'],
+      // grid_layout: {
+      //         width: '100%'
+      //     },
+      highlight_keywords: true,
+      single_filter: {
+        exclude_cols: [1],
+        //css_class: 'form-control',
+      },
+      //paging: {
+      //  results_per_page: ['Records: ', [10, 25, 50, 100]]
+        //length: 10
+      //},
+      auto_filter: {
+        delay: 110 //milliseconds
+      },
+      // extensions:[{
+      //       name: 'sort',
+      //       images_path:
+      //   'https://unpkg.com/tablefilter@latest/dist/tablefilter/style/themes/'
+      //   }],
+        toolbar: {
+    center_cont_css_class: 'toolbar-center'
+  },
+  help_instructions: false,
+      filters_row_index: 1,
+      state: false,
+      alternate_rows: true,
+      //rows_counter: true,
+      //btn_reset: true,
+      status_bar: false,
+      msg_filter: 'Search...'
+    };
+    var tf = new TableFilter('aoi-table', filtersConfig);
+    tf.init();
+  </script>
 </body>
 
 </html>

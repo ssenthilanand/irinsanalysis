@@ -1006,12 +1006,38 @@
     <button>Search</button>
   </div>
   <hr> -->
-  <table id="aoi-table" style="text-align: left;">
+
+  <form class="navbar-form navbar-left" onsubmit="filter(event);">
+    <div class="input-group" style="text-align: center;">
+        <label for="slcOperators">Search Area of Interest</label>
+<!--         <select id="slcOperators" name="slcOperators" class="form-control" style="visibility: hidden;">
+          <option value="*">Containing</option>
+          <option value="=">Exactly matching</option>
+          <option value="!">Excluding</option>
+          <option value="rgx:">Matching RegEx</option>
+          <option value="{">Starts with</option>
+                               <option value="}">Ends with</option>
+                    <option value="<">Less than</option>
+                    <option value="<=">Less than or equal to</option>
+                    <option value=">">Greater than</option>
+                    <option value=">=">Greater than or equal to</option>
+                    <option value="[empty]">Only empty</option>
+                    <option value="[nonempty]">Only non-empty</option>
+        </select> -->
+        <input name="inpSearch" type="text" class="form-control" placeholder="Search" autofocus>
+        <button type="submit" class="btn btn-default">Search</button>
+        <button type="reset" class="btn btn-link" onclick="tf.clearFilters();">Clear</button>
+    </div>
+  </form>
+
+  <script src="tablefilter/tablefilter.js"></script>
+  <div id="filtersToggle" style="visibility: hidden;"></div>
+
+
+  <table id="aoi-table" class="aoi-table" style="text-align: left;">
     <thead style="text-align:center">
-      <tr>
-        <td colspan=2><strong>Area of Interest</strong></td>
-        <!-- <td >Expert ID</td> -->
-      </tr>
+        <th colspan=2><strong>Area of Interest</strong></th>
+        <!-- <th>Expert ID</th> -->
     </thead>
     <tr>
       <td>3D Printing</td>
@@ -1167,7 +1193,8 @@
       </td>
     </tr>
     <tr>
-      <td>AI Applications to Power System Problems</td>
+      <td>AI Applications to Power System Problems<span style="visibility: hidden">AI</span><span
+          style="visibility: hidden">Artificial Intelligence</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117776>Prof P Somasundaram</a><br>
       </td>
@@ -1415,7 +1442,7 @@
       </td>
     </tr>
     <tr>
-      <td>Artificial Intelligence (AI)</td>
+      <td>Artificial Intelligence<span style="visibility: hidden">AI</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/60526>Dr Kannan Arputharaj</a><br>
         <a href=https://annauniv.irins.org/profile/60587>Dr Baskaran Ramachandran</a><br>
@@ -1434,7 +1461,7 @@
       </td>
     </tr>
     <tr>
-      <td>Artificial Intelligence and Software Engineering</td>
+      <td>Artificial Intelligence and Software Engineering<span style="visibility: hidden">AI</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/60526>Dr Kannan Arputharaj</a><br>
       </td>
@@ -1684,7 +1711,8 @@
       </td>
     </tr>
     <tr>
-      <td>Biological Process Modelling and Kinetics of Waste Water Treatment</td>
+      <td>Biological Process Modelling and Kinetics of Waste Water Treatment<span
+          style="visibility: hidden">Wastewater</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117640>Prof S Amal Raj</a><br>
       </td>
@@ -2565,7 +2593,7 @@
       </td>
     </tr>
     <tr>
-      <td>Decentralized Wastewater Treatment</td>
+      <td>Decentralized Wastewater Treatment<span style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117642>Prof Namasivayam Vasudevan</a><br>
       </td>
@@ -4067,7 +4095,7 @@
       </td>
     </tr>
     <tr>
-      <td>Industrial Wastewater Treatment</td>
+      <td>Industrial Wastewater Treatment<span style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117638>Dr Dhinagaran G</a><br>
       </td>
@@ -5173,7 +5201,7 @@
       </td>
     </tr>
     <tr>
-      <td>Natural Language Processing (NLP)</td>
+      <td>Natural Language Processing<span style="visibility: hidden">NLP</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117858>Prof G V Uma</a><br>
         <a href=https://annauniv.irins.org/profile/117859>Dr Mala T</a><br>
@@ -6084,7 +6112,8 @@
       </td>
     </tr>
     <tr>
-      <td>Reclamation and Reuse of Industrial Wastewaters by Chemical and Biological</td>
+      <td>Reclamation and Reuse of Industrial Wastewaters by Chemical and Biological<span
+          style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117641>Prof S Kanmani</a><br>
       </td>
@@ -7063,7 +7092,7 @@
       </td>
     </tr>
     <tr>
-      <td>Treatment of High TDS Industrial Wastewater</td>
+      <td>Treatment of High TDS Industrial Wastewater<span style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117642>Prof Namasivayam Vasudevan</a><br>
       </td>
@@ -7299,23 +7328,26 @@
         <a href=https://annauniv.irins.org/profile/117664>Dr Saravanan Ramasamy</a><br>
       </td>
     </tr>
-    <tr>
-      <td>Waste Water Treatment</td>
+    <!--     <tr>
+      <td>Waste Water Treatment<span style="visibility: hidden">Wastewater</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/57339>Prof Sivanesan Subramanian</a><br>
         <a href=https://annauniv.irins.org/profile/117634>Dr Sangeetha Dharmalingam</a><br>
         <a href=https://annauniv.irins.org/profile/117640>Prof S Amal Raj</a><br>
       </td>
-    </tr>
+    </tr> -->
     <tr>
-      <td>Wastewater Reuse</td>
+      <td>Wastewater Reuse<span style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117651>Prof N K Ambujam</a><br>
       </td>
     </tr>
     <tr>
-      <td>Wastewater Treatment</td>
+      <td>Wastewater Treatment<span style="visibility: hidden">Waste water</span></td>
       <td>
+        <a href=https://annauniv.irins.org/profile/57339>Prof Sivanesan Subramanian</a><br>
+        <a href=https://annauniv.irins.org/profile/117634>Dr Sangeetha Dharmalingam</a><br>
+        <a href=https://annauniv.irins.org/profile/117640>Prof S Amal Raj</a><br>
         <a href=https://annauniv.irins.org/profile/117638>Dr Dhinagaran G</a><br>
         <a href=https://annauniv.irins.org/profile/117642>Prof Namasivayam Vasudevan</a><br>
         <a href=https://annauniv.irins.org/profile/117643>Mrs Balasubramanian Manimekalai</a><br>
@@ -7323,7 +7355,7 @@
       </td>
     </tr>
     <tr>
-      <td>Water and Wastewater Treatment</td>
+      <td>Water and Wastewater Treatment<span style="visibility: hidden">Waste water</span></td>
       <td>
         <a href=https://annauniv.irins.org/profile/117645>Dr S Karthikeyan</a><br>
       </td>
@@ -7584,48 +7616,69 @@
 
 
   </table>
+  <script data-config>
 
-  <script src="tablefilter/tablefilter.js"></script>
+    
+function filter(evt) {
 
-  <script data-config="">
+  var abbr = {};
+  abbr["AI"] = "Artificial Intelligence";
+  abbr["NLP"] = "Natural Language Processing";
+      var frm = document.forms[0];
+      //var slcCols = frm.slcColumns;
+      //var slcOperators = frm.slcOperators;
+      var slcOperators = "*";
+      //console.log(slcOperators.value)
+      var inp = frm.inpSearch;
+      //console.log(inp.value)
+      if(abbr[inp.value] && (slcOperators == "*"))
+        var query = slcOperators + abbr[inp.value];
+      else
+        var query = slcOperators + inp.value;
+      //console.log(query);
+
+      // Set the column's filter value
+      tf.setFilterValue(0, query);
+
+      // Filter the table
+      tf.filter();
+
+      // Prevent form submission
+      evt.preventDefault();
+    }
+
     var filtersConfig = {
       base_path: 'tablefilter/',
-      //col_widths: ['100%', '40%'],
-      // grid_layout: {
-      //         width: '100%'
-      //     },
       highlight_keywords: true,
       single_filter: {
         exclude_cols: [1],
-        //css_class: 'form-control',
+        css_class: 'form-control',
       },
-      //paging: {
-      //  results_per_page: ['Records: ', [10, 25, 50, 100]]
-      //length: 10
-      //},
-      auto_filter: {
-        delay: 110 //milliseconds
-      },
-      // extensions:[{
-      //       name: 'sort',
-      //       images_path:
-      //   'https://unpkg.com/tablefilter@latest/dist/tablefilter/style/themes/'
-      //   }],
-      toolbar: {
-        center_cont_css_class: 'toolbar-center'
-      },
-      help_instructions: false,
+      //help_instructions: true,
       filters_row_index: 1,
       state: false,
       alternate_rows: true,
-      //rows_counter: true,
-      //btn_reset: true,
-      status_bar: false,
-      msg_filter: 'Search...'
+      msg_filter: 'Search...',
+      no_results_message: {
+        content: 'The term you entered does not correspond to a research area in Anna University as per our database',
+      },
+      extensions:[ // Extensions load addititional script files
+      {
+            name: 'filtersVisibility',
+            visible_at_start: false,
+            target_id: 'filtersToggle',
+            btn_html: '<button>Toggle filters<\/button>'
+        },
+        { name: 'sort' } // Sort requires to classify numeric columns using "col_types : [ 'numeric', String', ...],"
+      ],
     };
-    var tf = new TableFilter('aoi-table', filtersConfig);
+    var tf = new TableFilter(document.querySelector('.aoi-table'),filtersConfig);
     tf.init();
+    //var feature = tf.feature('dropdown');
+    //feature.refreshAll();
+
   </script>
+
 </body>
 
 </html>
